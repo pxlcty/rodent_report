@@ -1,0 +1,26 @@
+<div class="row">
+	<div class="small-12 columns">
+		<h3>Building Reports</h3>
+
+		<h1><%= @building.full_address %></h1>
+
+		<table>
+			<thead>
+				<tr>
+					<th>Date</th>
+					<th>Animal</th>
+					<th>Number</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @building.reports.each do |b| %>
+					<tr>
+						<td><%= b.datetime.strftime("%D") %></td>
+						<td><%= b.animal.capitalize %></td>
+						<td><%= b.number %></td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>

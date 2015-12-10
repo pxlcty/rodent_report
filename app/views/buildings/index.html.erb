@@ -1,0 +1,42 @@
+<div class="row">
+	<div class="small-6 columns">
+		<h1>Buildings</h1>
+
+		<table>
+			<thead>
+				<tr>
+					<th>Address</th>
+					<th>Reports</th>
+					<th>Edit</th>
+					<th>Delete</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<% @buildings.each do |building| %>
+					<tr>
+						<td><%= building.full_address %></td>
+						<td><%= building.neighborhood %></td>
+						<td><%= link_to building.reports.count, building_path(building) %></td>
+						<td><%= link_to "Edit", edit_building_path(building) %></td>
+						<td><%= link_to "Delete", building_path(building), method: :delete %></td>
+					</tr>
+				<% end %>
+
+			</tbody>
+		</table>
+		<%= link_to "Add Building", new_building_path %>
+	</div>
+	<div class= "small-6 columns">
+         <% if current_user %>
+            <h2>Add Report</h2>
+			<%= simple_form_for @report do |f| %>
+			<%= f.association :building, label_method: :full_address, prompt: "Selecct Building", include_blank: false %>
+         	<%= f.input :animal, collection: animals, prompt: "Select" %>
+         	<%= f.input :number, collection: 1..10, include_blank: false %>
+         	<%= f.input :datetime, as: :string, input_html: {:class=> 'datepicker'} %>
+         	<%= f.submit "Report" %>
+      		<% end %>
+         <% end %>
+</div>
+</div>

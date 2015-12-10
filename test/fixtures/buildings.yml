@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  houseno: MyString
+  streetname: MyString
+  borough: MyString
+  city: MyString
+  state: MyString
+  neighborhood: MyString
+  block: 1
+  lot: 1
+  bin: 1
+
+two:
+  houseno: MyString
+  streetname: MyString
+  borough: MyString
+  city: MyString
+  state: MyString
+  neighborhood: MyString
+  block: 1
+  lot: 1
+  bin: 1

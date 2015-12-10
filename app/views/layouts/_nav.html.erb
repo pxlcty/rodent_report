@@ -1,0 +1,21 @@
+<div class="top-bar">
+  <div class="top-bar-left">
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li class="menu-text">Rodent Report</li>
+	  <li><%= link_to "Buildings", buildings_path %></li>
+	  <% if !current_user %>
+	  	<li><%= link_to "Sign In", signin_path %></li>
+		<li><%= link_to "Sign Up", signup_path %></li>
+	  <% else %>
+	  	<li><%= link_to "My Profile", edit_user_path(current_user) %></li>
+		<li><%= link_to "Sign Out", signout_path %></li>
+	  <% end %>
+    </ul>
+  </div>
+  <div class="top-bar-right">
+    <ul class="menu">
+      <li><input type="search" placeholder="Search"></li>
+      <li><button type="button" class="button">Search</button></li>
+    </ul>
+  </div>
+</div>
